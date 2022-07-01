@@ -3,8 +3,8 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import useMediaQuery from '@mui/material/useMediaQuery';
 export default function ImageAvatars(props) {
-    const matches = useMediaQuery('(max-width:400px)')
-    const matchesCellphone = useMediaQuery('(max-width:500px)')
+    const matches = useMediaQuery('(max-width:500px)')
+   
     const { title = '', src = '' } = props
     return (
         <Stack direction="row" spacing={2}>

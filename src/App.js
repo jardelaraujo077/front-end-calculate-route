@@ -10,7 +10,7 @@ function App() {
   return (
     <>
       <div style={styles.container}>     
-          <h1 style={...styles.containerText}>Cálculo de delivery por Km</h1>
+          <h1 style={styles.containerText}>Cálculo de delivery por Km</h1>
         <div style={{ width: '100%' }}>
           <BoxForm setLoading={setLoading.bind(this)} />
 
