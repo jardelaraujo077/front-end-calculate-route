@@ -48,7 +48,7 @@ export default function BoxForm(props) {
     }    
     const save = async () => {
         setLoading(true)
-        if(!validateInfo(data)){
+        if(!await validateInfo(data)){
             alert('Por favor preencha corretamente os campos')
             return false
         }
