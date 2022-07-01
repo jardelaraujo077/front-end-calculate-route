@@ -21,4 +21,18 @@ export const cepFormater = (str) => {
     return data
 
 }
-export { formaterPrice, viaCep}
+const validateInfo = async (data) =>{
+
+    if(data.in == '' || data.in.length != 9){
+        return false
+    }
+    if(data.for == '' || data.for.length != 9){
+        return false
+    }
+    if(data.deliveryPrice == ''){
+        return false
+    }
+    return true
+
+}
+export { formaterPrice, viaCep,validateInfo}

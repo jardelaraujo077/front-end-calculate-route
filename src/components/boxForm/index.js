@@ -2,7 +2,7 @@ import * as React from 'react';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
 import { useEffect, useState } from 'react'
-import { cepFormater, formaterPrice, viaCep } from '../../function';
+import { cepFormater, formaterPrice, viaCep, validateInfo } from '../../function';
 import api from '../../api';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import Avatar from '@mui/material/Avatar';
@@ -35,9 +35,7 @@ export default function BoxForm(props) {
         let addressViaCep = {}
 
         if (data.in !== '') {
-
-            addressViaCep = await viaCep(data.in)
-            console.log('addressViaCep', addressViaCep)
+            addressViaCep = await viaCep(data.in)           
             await setAddress({ ...address, origin: `${addressViaCep.logradouro},${addressViaCep.bairro},${addressViaCep.localidade}` })
 
 
@@ -47,13 +45,13 @@ export default function BoxForm(props) {
             await setAddress({ ...address, destination: `${addressViaCep.logradouro},${addressViaCep.bairro},${addressViaCep.localidade}` })
         }
 
-    }
-    const arredondar = (nr) => {
-        return Math.round(nr, -1).toFixed(2)
-    }
-
+    }    
     const save = async () => {
         setLoading(true)
+        if(!validateInfo(data)){
+            alert('Por favor preencha corretamente os campos')
+            return false
+        }
         data.deliveryPrice = formaterPrice(data.deliveryPrice)
         data.in = data.in.replace(/\-/g, '')
         data.for = data.for.replace(/\-/g, '')
