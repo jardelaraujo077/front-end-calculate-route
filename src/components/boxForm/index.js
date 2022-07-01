@@ -50,6 +50,7 @@ export default function BoxForm(props) {
         setLoading(true)
         if(!await validateInfo(data)){
             alert('Por favor preencha corretamente os campos')
+            setLoading(false)
             return false
         }
         data.deliveryPrice = formaterPrice(data.deliveryPrice)
