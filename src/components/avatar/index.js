@@ -3,13 +3,13 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import useMediaQuery from '@mui/material/useMediaQuery';
 export default function ImageAvatars(props) {
-    const matches = useMediaQuery('(max-width:800px)')
-    const matchesCellphone = useMediaQuery('(max-width:400px)')
+    const matches = useMediaQuery('(max-width:400px)')
+    const matchesCellphone = useMediaQuery('(max-width:500px)')
     const { title = '', src = '' } = props
     return (
         <Stack direction="row" spacing={2}>
-            <Avatar style={{...styles.img, ...matches ? {top: 90} : '', ...matchesCellphone ? {top: 177,left: 77} : ''}} alt={title} src={src} />
-            <span style={{...styles.text,  ...matches ? {top: 108} : '',...matchesCellphone ? {top: 191,left: 107} : '' }}><b>Jardel Araujo</b></span>
+            <Avatar style={{...styles.img, ...matches ? {top: 177,left: 77} : ''}} alt={title} src={src} />
+            <span style={{...styles.text,  ...matches ? {top: 191,left: 107} : '' }}><b>Jardel Araujo</b></span>
 
         </Stack>
     );
