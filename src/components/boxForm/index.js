@@ -99,13 +99,13 @@ export default function BoxForm(props) {
               <a style={{cursor: 'pointer',color: '#000'}} href="https://www.linkedin.com/in/jardel-marinho-a15157138/"><ImageAvatars  title={'Jardel Araujo'} src={way}/> </a>         
             <div style={{ ...styles.group, ...matches ? { flexDirection: 'row', maxWidth: 'unset', flexWrap: 'wrap' } : '' }}>
                 <div style={styles.contentButton}>
-                    <TextField id="standard-basic" label="CEP de" variant="standard" name="in" value={data.in} onChange={onchange} onBlur={getCep} />
+                    <TextField id="standard-basic" label="CEP de" disabled={maps ? true : false} variant="standard" name="in" value={data.in} onChange={onchange} onBlur={getCep} />
                 </div>
                 <div style={styles.contentButton}>
-                    <TextField id="standard-basic" label="CEP para" variant="standard" name="for" value={data.for} onChange={onchange} onBlur={getCep} />
+                    <TextField id="standard-basic" label="CEP para" disabled={maps ? true : false} variant="standard" name="for" value={data.for} onChange={onchange} onBlur={getCep} />
                 </div>
                 <div style={styles.contentButton}>
-                    <TextField id="standard-basic" label="Preço por KM" variant="standard" name="deliveryPrice" value={data.deliveryPrice} onChange={onchange} />
+                    <TextField id="standard-basic" label="Preço por KM" disabled={maps ? true : false} variant="standard" name="deliveryPrice" value={data.deliveryPrice} onChange={onchange} />
                 </div>
                 <div style={styles.contentButton}>
                     <Button color="secondary" style={styles.calcule} onClick={() => save()}>Cálcular </Button>
