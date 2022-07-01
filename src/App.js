@@ -6,12 +6,12 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [loading, setLoading] = useState(false)
-  document.title='Jardel Araujo'
+  document.title = 'Jardel Araujo'
   return (
     <>
-      <div style={styles.container}>
-        <h1 style={{ fontFamily: "sans-serif",textAlign: 'center' }}>Cálculo de delivery por Km</h1>
-        <div style={{ width: '100%'}}>
+      <div style={styles.container}>     
+          <h1 style={...styles.containerText}>Cálculo de delivery por Km</h1>
+        <div style={{ width: '100%' }}>
           <BoxForm setLoading={setLoading.bind(this)} />
 
         </div>
@@ -50,6 +50,13 @@ const styles = {
     background: 'rgb(0,0,0,0.6)',
     height: '100%',
     top: 0
+  },
+  containerText:{
+    fontFamily: "sans-serif", 
+    textAlign: 'center',
+    marginTop: 71,
+    marginBlockEnd: 0
+
   }
 
 }

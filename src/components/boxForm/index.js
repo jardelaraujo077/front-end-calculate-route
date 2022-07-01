@@ -5,8 +5,6 @@ import { useEffect, useState } from 'react'
 import { cepFormater, formaterPrice, viaCep, validateInfo } from '../../function';
 import api from '../../api';
 import useMediaQuery from '@mui/material/useMediaQuery';
-import Avatar from '@mui/material/Avatar';
-import Stack from '@mui/material/Stack';
 import ImageAvatars from '../avatar';
 export default function BoxForm(props) {
     const { setLoading } = props
@@ -121,7 +119,7 @@ export default function BoxForm(props) {
                 }
 
             </div>
-            <div style={{ padding: '0px 40px', width: '100%' }}>
+            <div style={{ ...styles.containeMap, ...matches ? {padding: 0} : '' }}>
 
                 {
                     maps &&
@@ -152,6 +150,10 @@ const styles = {
         flexDirection: 'row',
         height: '100%',
       
+    },
+    containeMap:{
+        padding: '0px 40px', 
+        width: '100%'
     },
     group: {
         display: 'flex',
