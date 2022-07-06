@@ -9,7 +9,7 @@ export default function ImageAvatars(props) {
     return (
         <Stack direction="row" spacing={2}>
             <Avatar style={{...styles.img, ...matches ? {top: 177,left: 77} : ''}} alt={title} src={src} />
-            <span style={{...styles.text,  ...matches ? {top: 191,left: 107} : '' }}><b>Jardel Araujo</b></span>
+            <span style={{...styles.text,  ...matches ? {top: 191,left: 107} : '' }}><b>{title}</b></span>
 
         </Stack>
     );
