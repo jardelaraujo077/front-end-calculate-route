@@ -115,7 +115,7 @@ export default function BoxForm(props) {
                 </div>
                 <div style={styles.contentButton}>
                     <Button color="secondary" style={styles.calcule} onClick={() => save()}>Cálcular </Button>
-                    <Button color="secondary" style={styles.recalcule} onClick={() => reCalcular()}>Fazer outro calculo </Button>
+                    <Button color="secondary" style={styles.recalcule} onClick={() => reCalcular()}>Fazer outro cálculo </Button>
                 </div>
                 {
                     maps &&
