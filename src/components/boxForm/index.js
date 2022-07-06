@@ -92,6 +92,11 @@ export default function BoxForm(props) {
         }
 
     }
+    const reCalcular = async () =>{
+        await setMaps(false)
+        await setAddress({origin: '', destination: ''})
+        await setData({in: '', for: '', deliveryPrice: ''})
+    }
  
 
     return (
@@ -109,6 +114,7 @@ export default function BoxForm(props) {
                 </div>
                 <div style={styles.contentButton}>
                     <Button color="secondary" style={styles.calcule} onClick={() => save()}>Cálcular </Button>
+                    <Button color="secondary" style={styles.recalcule} onClick={() => reCalcular()}>Fazer outro calculo </Button>
                 </div>
                 {
                     maps &&
@@ -167,8 +173,14 @@ const styles = {
         padding: '20px'
     },
     calcule: {
-        background: 'rgb(0,0,0,0.5)',
-        color: '#000'
+        background: '#17cc00',
+        color: '#fff',
+        margin: 5
+    },
+    recalcule: {
+        background: '#0300cc',
+        color: '#fff',
+        margin: 5
     },
     containeInfo: {
         display: 'flex',
