@@ -53,8 +53,7 @@ export default function BoxForm(props) {
         }
         data.deliveryPrice = formaterPrice(data.deliveryPrice)
         data.in = data.in.replace(/\-/g, '')
-        data.for = data.for.replace(/\-/g, '')
-        console.log(address)
+        data.for = data.for.replace(/\-/g, '')        
         let deliveryPrice = data.deliveryPrice
 
         try {
@@ -70,11 +69,9 @@ export default function BoxForm(props) {
             })
                 .then(async response => {
                     const { data, status = 0 } = response
-                    const { distance, duration, } = data
-                    console.log('distance.text', data)
+                    const { distance, duration, } = data                   
                     if (status == 200) {
-                        distance.text = distance.text.split(' ')[0]
-                        console.log('aqui2', Number(deliveryPrice) * Number(distance.text))
+                        distance.text = distance.text.split(' ')[0]                          
                         await setDelivery(Number(deliveryPrice) * Number(distance.text))
                         await setTime(duration.text)
                         await setMaps(true)
