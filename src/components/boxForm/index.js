@@ -20,7 +20,7 @@ export default function BoxForm(props) {
     const [way, setWay] = useState('/static/JardelAraujo.jpg')
     const matches = useMediaQuery('(max-width:956px)')
     const [star, setStar] = useState(0)
-    const [alert, setAlert] = useState({type: 'success', msg: ''})
+    const [alert, setAlert] = useState({type: 'success', msg: 'Obrigado por sua Avaliação'})
     const [alertVerify, setAlertVerify] = useState(false)
    
 
@@ -144,7 +144,7 @@ export default function BoxForm(props) {
     }
     useEffect(() => {
       
-    }, [])
+    })
  
 
     return (
