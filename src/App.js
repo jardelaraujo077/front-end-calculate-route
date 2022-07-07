@@ -6,7 +6,10 @@ import { useEffect, useState } from 'react'
 
 function App() {
   const [loading, setLoading] = useState(false)
-  document.title = 'Jardel Araujo'
+  
+  useEffect(() => {
+    document.title = 'Jardel Araujo'
+  }, [])
   return (
     <>
       <div style={styles.container}>     

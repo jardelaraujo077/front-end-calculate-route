@@ -99,7 +99,8 @@ export default function BoxForm(props) {
     return (
         <div style={{ ...styles.containerButton, ...matches ? { flexDirection: 'column' } : '' }}>          
               <a style={{cursor: 'pointer',color: '#000'}} href="https://www.linkedin.com/in/jardel-marinho-a15157138/">
-                <ImageAvatars  title={'Jardel Araujo'} src={way}/> </a>         
+                <ImageAvatars  title={'Jardel Araujo'} src={way}/> 
+              </a>         
             <div style={{ ...styles.group, ...matches ? { flexDirection: 'row', maxWidth: 'unset', flexWrap: 'wrap' } : '' }}>
                 <div style={styles.contentButton}>
                     <TextField id="standard-basic" label="CEP de" disabled={maps ? true : false} variant="standard" name="in" value={data.in} onChange={onchange} onBlur={getCep} />
