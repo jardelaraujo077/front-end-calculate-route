@@ -36,7 +36,7 @@ const styles = {
     display: 'flex',
     maxWidth: 1024,
     flexDirection: 'column',
-    padding: 40,
+    padding: 28,
     background: '#fff',
     border: '1px solid rgb(0,0,0,0.5)',
     borderRadius: 13,

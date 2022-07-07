@@ -6,6 +6,10 @@ import { cepFormater, formaterPrice, viaCep, validateInfo } from '../../function
 import api from '../../api';
 import useMediaQuery from '@mui/material/useMediaQuery';
 import ImageAvatars from '../avatar';
+import BasicRating from '../stars';
+import Alert from '@mui/material/Alert';
+import Stack from '@mui/material/Stack';
+
 export default function BoxForm(props) {
     const { setLoading } = props
     const [data, setData] = useState({ in: '', for: '', deliveryPrice: 0 })
@@ -15,6 +19,10 @@ export default function BoxForm(props) {
     const [time, setTime] = useState("")
     const [way, setWay] = useState('/static/JardelAraujo.jpg')
     const matches = useMediaQuery('(max-width:956px)')
+    const [star, setStar] = useState(0)
+    const [alert, setAlert] = useState({type: 'success', msg: ''})
+    const [alertVerify, setAlertVerify] = useState(false)
+   
 
 
 
@@ -47,7 +55,11 @@ export default function BoxForm(props) {
     const save = async () => {
         setLoading(true)
         if(!await validateInfo(data)){
-            alert('Por favor preencha corretamente os campos')
+            await setAlertVerify(true)
+            await setAlert({type: 'error',msg: 'Por favor preencha corretamente os campos'}) 
+            setTimeout(() => {
+                setAlertVerify(false)
+              }, "5000")         
             setLoading(false)
             return false
         }
@@ -89,6 +101,42 @@ export default function BoxForm(props) {
         }
 
     }
+    const avalaible = async (e) =>{
+        await setStar(e)     
+        const dataInfo = {
+            count: e
+        }
+        await api.post(`/avalabled`, dataInfo, {
+            headers: {
+                'Content-Type': 'application/json',
+                'Access-Control-Allow-Origin': '*',
+                'Access-Control-Allow-Methods': 'POST, GET',
+                'Access-Control-Allow-Headers': '*',
+
+            },
+
+        })
+            .then(async response => {
+                const { status } = response.data
+                if(status){
+                    await setAlertVerify(true)
+                   await setAlert({type: 'success',msg: 'Obrigado por sua Avaliação'})
+                  
+                }
+                setTimeout(() => {
+                    setAlertVerify(false)
+                  }, "4000")
+
+          
+             
+                setLoading(false)
+
+            })
+            .catch((err) => {
+                console.log('err', err)
+                setLoading(false)
+            })
+    }
     const reCalcular = async () =>{
         await setMaps(false)
         await setAddress({origin: '', destination: ''})
@@ -118,6 +166,9 @@ export default function BoxForm(props) {
                     <Button color="secondary" style={styles.calcule} onClick={() => save()}>Cálcular </Button>
                     <Button color="secondary" style={styles.recalcule} onClick={() => reCalcular()}>Fazer outro cálculo </Button>
                 </div>
+                <div style={styles.contentButton}>
+                    <BasicRating avalaible={avalaible} star={star}/>
+                </div>
                 {
                     maps &&
                     <div style={styles.containeInfo}>
@@ -144,7 +195,12 @@ export default function BoxForm(props) {
                     </>
                 }
 
-            </div>
+            </div>          
+            {
+                alertVerify &&
+                <Alert style={{position: 'absolute', bottom: 20}} severity={alert.type}>{alert.msg}</Alert>
+            }
+         
 
         </div>
     )
