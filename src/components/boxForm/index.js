@@ -94,6 +94,9 @@ export default function BoxForm(props) {
         await setAddress({origin: '', destination: ''})
         await setData({in: '', for: '', deliveryPrice: ''})
     }
+    useEffect(() => {
+      
+    }, [])
  
 
     return (
