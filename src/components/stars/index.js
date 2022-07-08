@@ -8,7 +8,7 @@ export default function BasicRating(props) {
   const [value, setValue] = useState(star == 0 ? 1 : star);
   useEffect(() => {
       
-  })
+  },[])
 
   return (
     <Box

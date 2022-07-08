@@ -106,6 +106,10 @@ export default function BoxForm(props) {
         const dataInfo = {
             count: e
         }
+        try{
+            if(e.length !== 0){
+
+        
         await api.post(`/avalabled`, dataInfo, {
             headers: {
                 'Content-Type': 'application/json',
@@ -136,6 +140,11 @@ export default function BoxForm(props) {
                 console.log('err', err)
                 setLoading(false)
             })
+        }
+        }catch{
+
+        }
+  
     }
     const reCalcular = async () =>{
         await setMaps(false)
@@ -144,7 +153,7 @@ export default function BoxForm(props) {
     }
     useEffect(() => {
       
-    })
+    },[])
  
 
     return (
