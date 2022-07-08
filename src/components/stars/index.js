@@ -8,7 +8,7 @@ export default function BasicRating(props) {
   const [value, setValue] = useState(star == 0 ? 1 : star);
   useEffect(() => {
       
-  },[])
+  })
 
   return (
     <Box
@@ -19,13 +19,10 @@ export default function BasicRating(props) {
       <Typography component="legend">Deixe sua avaliação</Typography>
       <Rating
         name="simple-controlled"
-        value={value}
+        /* value={value} */
         onChange={(event, newValue) => {
           avalaible(newValue);
-        }}
-        onClick={(event, newValue) => {
-          avalaible(newValue);
-        }}
+        }}     
       />
      
 
