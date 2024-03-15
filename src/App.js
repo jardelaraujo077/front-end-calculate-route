@@ -58,7 +58,8 @@ const styles = {
     fontFamily: "sans-serif", 
     textAlign: 'center',
     marginTop: 71,
-    marginBlockEnd: 0
+    marginBlockEnd: 0,
+    marginLeft: '10%'
 
   }
 
