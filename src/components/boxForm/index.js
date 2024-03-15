@@ -67,7 +67,6 @@ export default function BoxForm(props) {
         data.in = data.in.replace(/\-/g, '')
         data.for = data.for.replace(/\-/g, '')        
         let deliveryPrice = data.deliveryPrice
-
         try {
             await api.post(`/searchRoute`, data, {
                 headers: {
@@ -152,6 +151,7 @@ export default function BoxForm(props) {
         await setData({in: '', for: '', deliveryPrice: ''})
     }
     useEffect(() => {
+        console.log("aqui",address.origin,address.destination)
       
     },[])
 
